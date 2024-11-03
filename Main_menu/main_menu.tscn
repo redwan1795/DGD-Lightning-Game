@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://n0l7qfo5twef"]
 
-[ext_resource type="Script" path="res://Maim_menu/main_menu.gd" id="1_066t3"]
+[ext_resource type="Script" path="res://Main_menu/main_menu.gd" id="1_066t3"]
 [ext_resource type="Texture2D" uid="uid://cie6hai088kh3" path="res://docs/hud-ui-gui-futuristic-user-interface-screen-elements-high-tech-screen-for-video-game-sci-fi-concept-design-vector.jpg" id="1_tmpj2"]
 
 [sub_resource type="SystemFont" id="SystemFont_gl6qx"]

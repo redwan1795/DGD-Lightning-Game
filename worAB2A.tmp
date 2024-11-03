@@ -51,3 +51,5 @@ fov = 104.7
 far = 60.0
 
 [node name="TerrainController" parent="." instance=ExtResource("1_wvryj")]
+
+[connection signal="tree_entered" from="Player/BodyShape" to="Player" method="_on_body_shape_tree_entered"]
