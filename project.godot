@@ -12,8 +12,13 @@ config_version=5
 
 config/name="EndlessRunner"
 config/description="This is an endless runner POC.  Used as a project to learn the concept."
-run/main_scene="res://world.tscn"
+run/main_scene="res://Main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [input]
 
