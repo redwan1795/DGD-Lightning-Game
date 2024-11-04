@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cno840nyxxpw2"]
+[gd_scene load_steps=10 format=3 uid="uid://cno840nyxxpw2"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_rjl68"]
 [ext_resource type="PackedScene" uid="uid://odgtnpypykcy" path="res://terrain_controller.tscn" id="1_wvryj"]
+[ext_resource type="PackedScene" uid="uid://n0l7qfo5twef" path="res://Main_menu/main_menu.tscn" id="3_vb5eh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_om122"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -51,3 +52,7 @@ fov = 104.7
 far = 60.0
 
 [node name="TerrainController" parent="." instance=ExtResource("1_wvryj")]
+
+[node name="Main_Menu" parent="." instance=ExtResource("3_vb5eh")]
+
+[connection signal="killed" from="Player" to="Main_Menu" method="_on_player_killed"]

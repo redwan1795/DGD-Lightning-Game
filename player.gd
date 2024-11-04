@@ -15,8 +15,10 @@ const floor_normal = Vector3(0, 1, 0)
 const floor_y = 1
 var is_grounded = true
 var jump_count = 0
- 
+
 func _physics_process(_delta: float) -> void:
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().quit() 
 
 	#IF we're at the floor - ground the player
 	if velocity.y == floor_y :
@@ -45,15 +47,15 @@ func _physics_process(_delta: float) -> void:
 	var collision = get_last_slide_collision()
 	if collision:
 		_check_y_axis()
-		
 		#If collision is at y.0 -> we are at the floor..
 		var collPos = collision.get_position()
 		if (collPos.y > 0):
 			#collided higher - quit
-			#Use signal killed to call and end scene or restart?
-			killed.emit()
+			#Use signal killed to call and end scene or restart?d
+			#killed.emit()
+			print("Collided with: ", collision.get_collider())
 			get_tree().quit()
-		
+	pass
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and jump_count < 2:
@@ -67,4 +69,5 @@ func _check_y_axis():
 		velocity.y = 0
 		is_grounded = true
 		jump_count -= 1
+
 	pass

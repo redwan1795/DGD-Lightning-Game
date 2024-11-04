@@ -6,9 +6,11 @@
 [sub_resource type="SystemFont" id="SystemFont_gl6qx"]
 font_names = PackedStringArray("Impact")
 font_weight = 450
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_007u2"]
 font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
