@@ -27,7 +27,7 @@ var counter = 0
 var score_label : Label 
 var win_label : Label
 var quit_button : Button
- 
+
 
 
 
@@ -40,6 +40,14 @@ func _physics_process(_delta: float) -> void:
 	if velocity.y == floor_y :
 		is_grounded = true
 
+	var curr_pos = clampf(global_position.x, -50, 50)
+	if curr_pos < -10 || curr_pos > 10:
+		velocity.y -= -50
+		is_grounded = false
+		win_label.text = "You Lose!! Try again"
+		quit_button.visible = true
+		counter = 0
+		get_tree().change_scene_to_file("res://Main_menu/main_menu.tscn")
 	if is_grounded:
 		#IF we're grounded - make sure we are
 		velocity.y = move_toward(velocity.y, 0, jump_speed)
@@ -87,7 +95,11 @@ func _input(event: InputEvent) -> void:
 
 func _check_y_axis():
 		# If the collision happened at the floor - reset to floor
-	if velocity.y <= 0:
+		
+	if velocity.y < 0:
+		velocity.y = -50
+	elif velocity.y == 0:
+#	if velocity.y <= 0:
 		velocity.y = 0
 		is_grounded = true
 		jump_count -= 1

@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cno840nyxxpw2"]
+[gd_scene load_steps=10 format=3 uid="uid://cno840nyxxpw2"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_rjl68"]
 [ext_resource type="Texture2D" uid="uid://cjqieoa6hjp4" path="res://outer-space-background.jpg" id="1_tfba1"]
 [ext_resource type="PackedScene" uid="uid://odgtnpypykcy" path="res://terrain_controller.tscn" id="1_wvryj"]
 [ext_resource type="ArrayMesh" uid="uid://btwap67m82hj3" path="res://3d_space_ship.mesh" id="3_xf4cd"]
-[ext_resource type="AudioStream" uid="uid://cukved77hf7q7" path="res://Main_menu/music.mp3" id="5_bcl0v"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_325hs"]
 panorama = ExtResource("1_tfba1")
@@ -108,9 +107,5 @@ offset_right = 15.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("5_bcl0v")
-autoplay = true
 
 [connection signal="pressed" from="Control/RestartButton" to="Player" method="_on_restart_button_pressed"]
