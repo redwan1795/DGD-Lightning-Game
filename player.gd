@@ -109,7 +109,7 @@ func _process(delta):
 	#print(counter)
 	if score_label:
 		score_label.text = "Point: "+str(counter)
-		if counter > 1000:
+		if counter > 5000:
 			win_label.visible = true
 			win_label.text = "Level Completed !!!!!!!!!!"
 			#quit_button.visible = true
