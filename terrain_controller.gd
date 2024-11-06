@@ -23,6 +23,7 @@ func _ready() -> void:
 	_init_blocks(num_terrain_blocks)
 
 
+
 func _physics_process(delta: float) -> void:
 	_progress_terrain(delta)
 

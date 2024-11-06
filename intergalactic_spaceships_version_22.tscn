@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://8h835uebak7f"]
+
+[ext_resource type="PackedScene" uid="uid://d3xstmhphr0ix" path="res:// GLTF_SEPARATE/Intergalactic_Spaceships_Version_2.gltf" id="1_h17bm"]
+[ext_resource type="ArrayMesh" uid="uid://btwap67m82hj3" path="res://3d_space_ship.mesh" id="2_c7gbt"]
+
+[node name="Intergalactic_Spaceships_Version_22" instance=ExtResource("1_h17bm")]
+
+[node name="Intergalactic_Spaceships_Version_2" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("2_c7gbt")
+
+[node name="Torus_001" parent="Intergalactic_Spaceships_Version_2/Empty" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0494092, -0.0754996, 0.257179)
+
+[node name="Torus_002" parent="Intergalactic_Spaceships_Version_2/Empty" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0494092, -0.0754996, 0.257179)
+
+[node name="Torus_003" parent="Intergalactic_Spaceships_Version_2/Empty" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0494092, -0.0754996, 0.257179)
+
+[node name="Torus_004" parent="Intergalactic_Spaceships_Version_2/Empty" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0494092, -0.0754996, 0.257179)
+
+[node name="Torus_000" parent="Intergalactic_Spaceships_Version_2/Empty_001" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11574, -0.078086, 0.266774)
+
+[node name="Torus_005" parent="Intergalactic_Spaceships_Version_2/Empty_001" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11574, -0.078086, 0.266774)
+
+[node name="Torus_006" parent="Intergalactic_Spaceships_Version_2/Empty_001" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11574, -0.078086, 0.266774)
+
+[node name="Torus_007" parent="Intergalactic_Spaceships_Version_2/Empty_001" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11574, -0.078086, 0.266774)

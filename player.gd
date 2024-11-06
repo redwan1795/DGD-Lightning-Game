@@ -16,7 +16,23 @@ const floor_y = 1
 var is_grounded = true
 var jump_count = 0
 
+#var score = 0.0
+var score_multiplier = 100
+var elapsed_time = 0.0
+var is_running = false
+var counter = 0
+
+
+
+var score_label : Label 
+var win_label : Label
+var quit_button : Button
+ 
+
+
+
 func _physics_process(_delta: float) -> void:
+	#win_label.visible = false
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit() 
 
@@ -54,7 +70,13 @@ func _physics_process(_delta: float) -> void:
 			#Use signal killed to call and end scene or restart?d
 			#killed.emit()
 			print("Collided with: ", collision.get_collider())
-			get_tree().quit()
+			#get_tree().quit()
+			win_label.visible = true
+			win_label.text = "You Lose!! Try again"
+			quit_button.visible = true
+			counter = 0
+			get_tree().change_scene_to_file("res://Menu.tscn")
+		
 	pass
 
 func _input(event: InputEvent) -> void:
@@ -71,3 +93,28 @@ func _check_y_axis():
 		jump_count -= 1
 
 	pass
+
+func _process(delta):
+	
+	counter += 1
+	
+	
+	
+	score_label = $"../Control/Label"
+	win_label = $"../Control2/Win"
+	quit_button = $"../Control/RestartButton"
+	
+	#win_label.visible = false
+	#quit_button.visible = false
+	#print(counter)
+	if score_label:
+		score_label.text = "Point: "+str(counter)
+		if counter > 1000:
+			win_label.visible = true
+			win_label.text = "Level Completed !!!!!!!!!!"
+			#quit_button.visible = true
+			counter = 0
+
+
+func _on_restart_button_pressed() -> void:
+	get_tree().quit()

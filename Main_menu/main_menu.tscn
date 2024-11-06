@@ -72,16 +72,19 @@ alignment = 1
 [node name="separator" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Start Game" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_007u2")
 theme_override_font_sizes/font_size = 120
 text = "Start Game"
 
-[node name="Exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_007u2")
 theme_override_font_sizes/font_size = 120
 text = "Exit"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_pressed"]

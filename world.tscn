@@ -1,15 +1,15 @@
 [gd_scene load_steps=10 format=3 uid="uid://cno840nyxxpw2"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_rjl68"]
+[ext_resource type="Texture2D" uid="uid://cjqieoa6hjp4" path="res://outer-space-background.jpg" id="1_tfba1"]
 [ext_resource type="PackedScene" uid="uid://odgtnpypykcy" path="res://terrain_controller.tscn" id="1_wvryj"]
-[ext_resource type="PackedScene" uid="uid://n0l7qfo5twef" path="res://Main_menu/main_menu.tscn" id="3_vb5eh"]
+[ext_resource type="ArrayMesh" uid="uid://btwap67m82hj3" path="res://3d_space_ship.mesh" id="3_xf4cd"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_om122"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_325hs"]
+panorama = ExtResource("1_tfba1")
 
 [sub_resource type="Sky" id="Sky_clgfu"]
-sky_material = SubResource("ProceduralSkyMaterial_om122")
+sky_material = SubResource("PanoramaSkyMaterial_325hs")
 
 [sub_resource type="Environment" id="Environment_y0213"]
 background_mode = 2
@@ -20,8 +20,6 @@ glow_enabled = true
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ofssd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wwof8"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_187ag"]
 
 [node name="World" type="Node3D"]
 
@@ -43,16 +41,71 @@ shape = SubResource("CapsuleShape3D_ofssd")
 shape = SubResource("BoxShape3D_wwof8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.1, 2.08165e-12)
-mesh = SubResource("CapsuleMesh_187ag")
+transform = Transform3D(-0.1, -8.74228e-09, 3.82137e-16, 0, -4.37114e-09, -0.1, 8.74228e-09, -0.1, 4.37114e-09, 2.08165e-12, 0.1, 2.08165e-12)
+mesh = ExtResource("3_xf4cd")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.926962, 0.375156, 0, -0.375156, 0.926962, 0, 1.98366, 0.968483)
+transform = Transform3D(1, 0, 0, 0, 0.926962, 0.375156, 0, -0.375156, 0.926962, 0, 1.984, 1.2)
 fov = 104.7
 far = 60.0
 
 [node name="TerrainController" parent="." instance=ExtResource("1_wvryj")]
 
-[node name="Main_Menu" parent="." instance=ExtResource("3_vb5eh")]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -109.0
+offset_bottom = 40.0
+grow_horizontal = 0
 
-[connection signal="killed" from="Player" to="Main_Menu" method="_on_player_killed"]
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -109.0
+offset_right = 91.0
+offset_bottom = 100.0
+grow_horizontal = 0
+text = "Score: 0
+"
+
+[node name="RestartButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -109.0
+offset_top = 30.0
+offset_right = -9.0
+offset_bottom = 80.0
+grow_horizontal = 0
+text = "Quit Game"
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Win" type="Label" parent="Control2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -11.5
+offset_right = 15.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Control/RestartButton" to="Player" method="_on_restart_button_pressed"]

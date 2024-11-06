@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="EndlessRunner"
+config/name="Infinity_Space_game"
 config/description="This is an endless runner POC.  Used as a project to learn the concept."
-run/main_scene="res://Main_menu/main_menu.tscn"
+run/main_scene="res://Menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
 [display]
