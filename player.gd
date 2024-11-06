@@ -75,7 +75,7 @@ func _physics_process(_delta: float) -> void:
 			win_label.text = "You Lose!! Try again"
 			quit_button.visible = true
 			counter = 0
-			get_tree().change_scene_to_file("res://Menu.tscn")
+			get_tree().change_scene_to_file("res://Main_menu/main_menu.tscn")
 		
 	pass
 
